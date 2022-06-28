@@ -1,4 +1,4 @@
-from project.pokemon import Pokemon
+from project1.pokemon import Pokemon
 
 
 class Trainer:
