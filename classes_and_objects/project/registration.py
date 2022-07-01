@@ -21,7 +21,7 @@ class Registration:
                     for user in library.user_records:
                         if user.username == user.username:
                             user.username = new_username
-                            return f"Username successfully changed to: {new_username} for user id: {user_id}"
+                            return f"Username successfully changed to: {new_username} for userid: {user_id}"
                 elif new_username == user.username:
                     return f"Please check again the provided username - it should be different than the username used so far!"
         else:
