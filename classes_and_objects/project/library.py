@@ -22,7 +22,7 @@ class Library:
     def return_book(self, author, book_name, user: User):
         if book_name in user.books:
             self.books_available[author].append(book_name)
-            del self.rented_books[user.username][book_name]
+            self.rented_books[user.username].pop(book_name)
             user.books.remove(book_name)
         else:
             return f"{user.username} doesn't have this book in his/her records!"
