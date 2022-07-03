@@ -1,4 +1,4 @@
-from project import User
+from project.user import User
 
 
 class Library:
@@ -8,7 +8,7 @@ class Library:
         self.rented_books = {}
 
     def get_book(self, author: str, book_name: str, days_to_return: int, user: User):
-        if author in self.books_available and book_name in self.rented_books[author]:
+        if author in self.books_available.keys() and book_name in self.books_available[author]:
             user.books.append(book_name)
             self.books_available[author].remove(book_name)
 
