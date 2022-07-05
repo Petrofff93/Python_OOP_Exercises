@@ -1,7 +1,7 @@
-from project.elf import Elf
+from project3.hero import Hero
 
 
-class MuseElf(Elf):
+class Wizard(Hero):
     def __init__(self, username, level):
         super().__init__(username, level)
 

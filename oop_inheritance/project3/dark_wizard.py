@@ -1,7 +1,6 @@
-from project.hero import Hero
+from project3.wizard import Wizard
 
 
-class Wizard(Hero):
+class DarkWizard(Wizard):
     def __init__(self, username, level):
         super().__init__(username, level)
-
