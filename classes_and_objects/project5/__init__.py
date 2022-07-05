@@ -1,4 +1,4 @@
-from project.dog import Dog
+from project5.dog import Dog
 
 bob = Dog()
 print(bob.eat())
