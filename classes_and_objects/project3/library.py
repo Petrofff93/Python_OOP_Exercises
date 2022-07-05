@@ -1,4 +1,4 @@
-from project.user import User
+from project3.user import User
 
 
 class Library:
