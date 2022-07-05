@@ -1,8 +1,6 @@
-from project.car import Car
+from project4.car import Car
 
 
-class SportCar(Car):
-    DEFAULT_FUEL_CONSUMPTION = 10
-
+class FamilyCar(Car):
     def __init__(self, fuel, horse_power):
         super().__init__(fuel, horse_power)

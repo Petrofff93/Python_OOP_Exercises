@@ -1,6 +1,9 @@
-from project.car import Car
+from project4.vehicle import Vehicle
 
 
-class FamilyCar(Car):
+class Motorcycle(Vehicle):
     def __init__(self, fuel, horse_power):
         super().__init__(fuel, horse_power)
+
+
+
