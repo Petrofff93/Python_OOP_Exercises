@@ -27,6 +27,6 @@ class Profile:
         self.__password = value
 
     def __str__(self):
-        return f'You have a profile with username: "{self.username}" and password: {len(self.password)*"*"}'
+        return f'You have a profile with username: "{self.username}" and password: {len(self.password) * "*"}'
 
 
