@@ -46,6 +46,3 @@ class Profile:
         return f'You have a profile with username: "{self.__username}" and password: {"*" * len(self.__password)}'
 
 
-correct_profile = Profile("Username", "Passw0rd")
-print(correct_profile)
-
