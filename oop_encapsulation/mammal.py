@@ -7,7 +7,7 @@ class Mammal:
         self.sound = sound
 
     def make_sound(self):
-        return self.sound
+        return f'{self.name} makes {self.sound}'
 
     def get_kingdom(self):
         return self.__kingdom
