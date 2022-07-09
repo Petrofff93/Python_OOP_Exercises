@@ -39,9 +39,7 @@ class Zoo:
         return f'There is no {worker_name} in the zoo'
 
     def pay_workers(self):
-        total_salaries = 0
-        for worker in self.workers:
-            total_salaries += worker.salary
+        total_salaries = sum(s.salary for s in self.workers)
 
         if self.__budget >= total_salaries:
             self.__budget -= total_salaries
@@ -49,9 +47,7 @@ class Zoo:
         return 'You have no budget to pay your workers. They are unhappy'
 
     def tend_animals(self):
-        total_animal_tend = 0
-        for animal in self.animals:
-            total_animal_tend += animal.money_for_care
+        total_animal_tend = sum(x.money_for_care for x in self.animals)
 
         if self.__budget >= total_animal_tend:
             self.__budget -= total_animal_tend
@@ -63,48 +59,27 @@ class Zoo:
 
     def animals_status(self):
         result = f'You have {len(self.animals)} animals\n'
+        lions = [repr(x) for x in self.animals if isinstance(x, Lion)]
+        result += f'----- {len(lions)} Lions:\n' + '\n'.join(lions) + '\n'
 
-        lions = [x for x in self.animals if type(x) == Lion]
-        tigers = [x for x in self.animals if type(x) == Tiger]
-        cheetahs = [x for x in self.animals if type(x) == Cheetah]
+        tigers = [repr(x) for x in self.animals if isinstance(x, Tiger)]
+        result += f'----- {len(tigers)} Tigers:\n' + '\n'.join(tigers) + '\n'
 
-        result += f'----- {len(lions)} Lions:\n'
+        cheetahs = [repr(x) for x in self.animals if isinstance(x, Cheetah)]
+        result += f'----- {len(cheetahs)} Cheetahs:\n' + '\n'.join(cheetahs)
 
-        for lion in lions:
-            result += f'{repr(lion)}\n'
-
-        result += f'----- {len(tigers)} Tigers:\n'
-
-        for tiger in tigers:
-            result += f'{repr(tiger)}\n'
-
-        result += f'----- {len(cheetahs)} Cheetahs:\n'
-
-        for cheetah in cheetahs:
-            result += f'{repr(cheetah)}\n'
-
-        return result.strip()
+        return result
 
     def workers_status(self):
         result = f'You have {len(self.workers)} workers\n'
+        keepers = [repr(x) for x in self.workers if isinstance(x, Keeper)]
+        result += f'----- {len(keepers)} Keepers:\n' + '\n'.join(keepers) + '\n'
 
-        keepers = [x for x in self.workers if type(x) == Keeper]
-        caretakers = [x for x in self.workers if type(x) == Caretaker]
-        vets = [x for x in self.workers if type(x) == Vet]
+        caretakers = [repr(x) for x in self.workers if isinstance(x, Caretaker)]
+        result += f'----- {len(caretakers)} Caretakers:\n' + '\n'.join(caretakers) + '\n'
 
-        result += f'----- {len(keepers)} Keepers:\n'
+        vets = [repr(x) for x in self.workers if isinstance(x, Vet)]
+        result += f'----- {len(vets)} Vets:\n' + '\n'.join(vets)
 
-        for keeper in keepers:
-            result += f'{repr(keeper)}\n'
+        return result
 
-        result += f'----- {len(caretakers)} Caretakers:\n'
-
-        for caretaker in caretakers:
-            result += f'{repr(caretaker)}\n'
-
-        result += f'----- {len(vets)} Vets:\n'
-
-        for vet in vets:
-            result += f'{repr(vet)}\n'
-
-        return result.strip()
