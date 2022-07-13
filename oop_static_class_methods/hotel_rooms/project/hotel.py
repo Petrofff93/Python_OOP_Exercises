@@ -5,7 +5,10 @@ class Hotel:
     def __init__(self, name):
         self.name = name
         self.rooms = []
-        self.guests = 0
+
+    @property
+    def guests(self):
+        return sum([r.guests for r in self.rooms])
 
     @classmethod
     def from_stars(cls, stars_count):
@@ -15,40 +18,18 @@ class Hotel:
         self.rooms.append(room)
 
     def take_room(self, room_number, people):
-        for room in self.rooms:
-            if room.number == room_number:
-                if not room.is_taken:
-                    if people <= room.capacity:
-                        room.guests += people
-                        room.is_taken = True
+        room = [r for r in self.rooms if r.number == room_number][0]
+        return room.take_room(people)
 
     def free_room(self, room_number):
-        for room in self.rooms:
-            if room.number == room_number:
-                if room.is_taken:
-                    room.guests = 0
-                    room.is_taken = False
+        room = [r for r in self.rooms if r.number == room_number][0]
+        return room.free_room()
 
     def status(self):
-        guests = 0
-        free_rooms = []
-        taken_rooms = []
-        for room in self.rooms:
-            guests += room.guests
-            if room.is_taken:
-                taken_rooms.append(room.number)
-            else:
-                free_rooms.append(room.number)
 
-        result = f'Hotel {self.name} has {guests} total guests\nFree rooms: {", ".join(str(x) for x in free_rooms)}\n' \
+        free_rooms = [r.number for r in self.rooms if not r.is_taken]
+        taken_rooms = [r.number for r in self.rooms if r.is_taken]
+
+        result = f'Hotel {self.name} has {self.guests} total guests\nFree rooms: {", ".join(str(x) for x in free_rooms)}\n' \
                  f'Taken rooms: {", ".join(str(x) for x in taken_rooms)}'
         return result
-
-
-
-
-
-
-
-
-
