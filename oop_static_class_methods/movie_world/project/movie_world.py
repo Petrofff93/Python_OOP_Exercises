@@ -1,4 +1,3 @@
-
 from project.customer import Customer
 from project.dvd import DVD
 
@@ -66,4 +65,3 @@ class MovieWorld:
             result += repr(dvd) + '\n'
         
         return result
-    
