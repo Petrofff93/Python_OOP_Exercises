@@ -48,11 +48,10 @@ class MovieWorld:
         current_customer = [customer for customer in self.customers if customer.id == customer_id][0]
         current_dvd = [d for d in self.dvds if d.id == dvd_id][0]
         
-        for dvd in current_customer.rented_dvds:
-            if dvd.id == dvd_id:
-                current_dvd.is_rented = False
-                current_customer.rented_dvds.remove(dvd)
-                return f'{current_customer.name} has successfully returned {current_dvd.name}'
+        if current_dvd in current_customer.rented_dvds:
+            current_dvd.is_rented = False
+            current_customer.rented_dvds.remove(current_dvd)
+            return f'{current_customer.name} has successfully returned {current_dvd.name}'
         return f'{current_customer.name} does not have that DVD'
     
     def __repr__(self):
