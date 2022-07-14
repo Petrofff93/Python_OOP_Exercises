@@ -1,17 +1,4 @@
-months_dict = {
-    1: "January",
-    2: "February",
-    3: "March",
-    4: "April",
-    5: "May",
-    6: "June",
-    7: "July",
-    8: "August",
-    9: "September",
-    10: "October",
-    11: "November",
-    12: "December"
-}
+from project import month_mapper
 
 
 class DVD:
@@ -27,7 +14,7 @@ class DVD:
     def from_date(cls, id, name, date, age_restriction):
         _, month, year = [int(x) for x in date.split('.')]
 
-        month = months_dict[month]
+        month = month_mapper[month]
         return cls(name, id, year, month, age_restriction)
 
     def __repr__(self) -> str:
