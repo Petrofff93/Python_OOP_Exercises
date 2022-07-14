@@ -67,6 +67,3 @@ class MovieWorld:
         
         return result
     
-                    
-            
-            
