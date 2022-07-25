@@ -25,4 +25,3 @@ class Meat(Food):
 class Seed(Food):
     def __init__(self, quantity):
         super().__init__(quantity)
-
