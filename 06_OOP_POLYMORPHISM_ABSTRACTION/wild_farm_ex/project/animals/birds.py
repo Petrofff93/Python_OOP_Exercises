@@ -10,7 +10,8 @@ class Owl(Bird):
     def weight_incremental(self):
         return 0.25
 
-    def make_sound(self):
+    @staticmethod
+    def make_sound():
         return "Hoot Hoot"
 
 
@@ -23,5 +24,6 @@ class Hen(Bird):
     def weight_incremental(self):
         return 0.35
 
-    def make_sound(self):
+    @staticmethod
+    def make_sound():
         return "Cluck"

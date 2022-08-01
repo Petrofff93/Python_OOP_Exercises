@@ -23,7 +23,8 @@ class Dog(Mammal):
     def weight_incremental(self):
         return 0.4
 
-    def make_sound(self):
+    @staticmethod
+    def make_sound():
         return "Woof!"
 
 
@@ -36,7 +37,8 @@ class Cat(Mammal):
     def weight_incremental(self):
         return 0.3
 
-    def make_sound(self):
+    @staticmethod
+    def make_sound():
         return "Meow"
 
 
@@ -49,5 +51,6 @@ class Tiger(Mammal):
     def weight_incremental(self):
         return 1
 
-    def make_sound(self):
+    @staticmethod
+    def make_sound():
         return "ROAR!!!"
